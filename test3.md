@@ -402,3 +402,354 @@ seen = set()
 ans = list(filter(check_elem, arr))
 print(ans)
 ```
+
+# reduce()
+```python
+from functools import reduce
+
+#     31. Use reduce() to sum all numbers in a list.
+# Example Input: [1, 2, 3, 4]
+# Expected Output: 10
+
+arr = [1, 2, 3, 4]
+ans = reduce(lambda x,y: x+y, arr)
+print(ans)
+```
+
+```python
+#     32. Use reduce() to find product of numbers.
+# Example Input: [2, 3, 4]
+# Expected Output: 24
+
+def product(x, y):
+    return x*y
+
+arr = [2, 3, 4]
+ans = reduce(product, arr)
+print(ans)
+```
+
+```python
+#     33. Use reduce() to concatenate strings.
+# Example Input: ['a', 'b', 'c']
+# Expected Output: 'abc'
+
+def conc(a,b):
+    return a + b
+
+arr = ['a', 'b', 'c']
+ans = reduce(conc, arr)
+print(ans)
+```
+
+```python
+#     34. Use reduce() to find maximum number.
+# Example Input: [5, 1, 9, 2]
+# Expected Output: 9
+
+def max_num(x,y):
+    return x if x>y else y
+
+arr = [5, 1, 9, 2]
+ans = reduce(max_num, arr)
+print(ans)
+```
+
+```python
+#     35. Use reduce() to find minimum number.
+# Example Input: [5, 1, 9, 2]
+# Expected Output: 1
+
+def min_num(x,y):
+    return x if x<y else y
+
+arr = [5, 1, 9, 2]
+ans = reduce(min_num, arr)
+print(ans)
+```
+```python
+#     36. Use reduce() to calculate factorial of 5.
+# Example Input: [1, 2, 3, 4, 5]
+# Expected Output: 120
+
+arr = [1, 2, 3, 4, 5]
+ans = reduce(lambda x, y: x*y, arr)
+
+print(ans)
+```
+
+```python
+#     37. Use reduce() to count total characters in a list of words.
+# Example Input: ['cat', 'dog']
+# Expected Output: 6
+
+def count_char(x,y):
+    return len(x)+len(y)
+
+arr = ['cat', 'dog']
+ans = reduce(count_char, arr)
+
+print(ans)
+```
+
+```python
+#     38. Use reduce() to flatten nested list.
+# Example Input: [[1,2],[3,4],[5,6]]
+# Expected Output: [1,2,3,4,5,6]
+
+def flatten(x, y):
+    return x+y
+
+arr = [[1,2],[3,4],[5,6]]
+ans = reduce(flatten, arr)
+print(ans)
+```
+
+```python
+#     39. Use reduce() to compute GCD of numbers.
+# Example Input: [8, 12, 16]
+# Expected Output: 4
+
+def gcd(x, y):
+    while y:
+        x, y = y, x%y
+    return x
+
+arr = [8, 12, 16]
+ans = reduce(gcd, arr)
+print(ans)
+```
+
+```python
+#     40. Use reduce() to find longest word.
+# Example Input: ['cat', 'tiger', 'elephant']
+# Expected Output: 'elephant'
+
+def longword(x, y):
+    if len(x)>len(y):
+        return x
+    else:
+        return y
+
+arr = ['cat', 'tiger', 'elephant']
+ans = reduce(longword, arr)
+print(ans)
+```
+
+```python
+#     41. Use reduce() to find sum of squares.
+# Example Input: [1, 2, 3]
+# Expected Output: 14
+
+def sumarr(x, y):
+    return x + y 
+
+arr = [1, 2, 3]
+ans = reduce(sumarr, list(map(lambda x: x*x, arr)))
+
+print(ans)
+```
+
+```python
+#     42. Use reduce() to combine list of dicts into one.
+# Example Input: [{'a':1}, {'b':2}]
+# Expected Output: {'a':1, 'b':2}
+def join_dict(x, y):
+    return {**x, **y}
+
+arr = [{'a':1}, {'b':2}]
+ans = reduce(join_dict, arr)
+
+print(ans)
+```
+
+```python
+#     43. Use reduce() to calculate difference between consecutive numbers.
+# Example Input: [10, 2, 1]
+# Expected Output: 7
+
+def diff(x, y):
+    return abs(x-y)
+
+arr = [10, 2, 1]
+ans = reduce(diff, arr)
+
+print(ans)
+```
+```python
+#     44. Use reduce() to find most frequent element.
+# Example Input: [1, 2, 2, 3]
+# Expected Output: 2
+
+def freq_elem(acc, x):
+    acc[x] = acc.get(x,0)+1
+    return acc
+
+arr = [1, 2, 2, 3]
+ans = reduce(freq_elem, arr, {})
+print(max(ans, key=ans.get))
+```
+
+```python
+#     45. Use reduce() to compute sum of cubes.
+# Example Input: [1, 2, 3]
+# Expected Output: 36
+
+def sumarr(x, y):
+    return x + y 
+
+arr = [1, 2, 3]
+ans = reduce(sumarr, list(map(lambda x: x**3, arr)))
+
+print(ans)
+```
+# lambda
+
+```python
+#     46. Write a lambda to add two numbers.
+# Example Input: 5, 3
+# Expected Output: 8
+
+ans = lambda x, y : x + y
+print(ans(5, 3))
+```
+
+```python
+#     47. Write a lambda to find square of a number.
+# Example Input: 4
+# Expected Output: 16
+
+square = lambda x: x**2
+
+print(square(4))
+```
+
+```python
+#     48. Write a lambda to check if a number is even.
+# Example Input: 7
+# Expected Output: False
+
+check = lambda x: x%2==0
+print(check(7))
+```
+
+```python
+#     49. Write a lambda to return max of two numbers.
+# Example Input: 10, 15
+# Expected Output: 15
+
+max_elem = lambda x, y : x if x>y else y
+print(max_elem(10, 15))
+```
+
+```python
+#     50. Use lambda with map() to cube list elements.
+# Example Input: [1, 2, 3]
+# Expected Output: [1, 8, 27]
+
+arr = [1, 2, 3]
+ans = list(map(lambda x : x**3, arr))
+print(ans)
+```
+
+```python
+#     51. Use lambda with filter() to get even numbers.
+# Example Input: [1, 2, 3, 4]
+# Expected Output: [2, 4]
+
+arr = [1, 2, 3, 4]
+ans = list(filter(lambda x : x%2 == 0, arr))
+print(ans)
+```
+
+```python
+#     52. Write a lambda to check palindrome string.
+# Example Input: 'madam'
+# Expected Output: True
+
+s = 'madam'
+check_palindrome = lambda s : s==s[::-1]
+
+print(check_palindrome(s))
+```
+
+```python
+#     53. Use lambda to sort tuples by second value.
+# Example Input: [(1, 5), (2, 3), (3, 1)]
+# Expected Output: [(3, 1), (2, 3), (1, 5)]
+
+arr = [(1, 5), (2, 3), (3, 1)]
+ans = sorted(arr, key=lambda x:x[1])
+print(ans)
+```
+
+```python
+#     54. Use lambda to multiply three numbers.
+# Example Input: 2, 3, 4
+# Expected Output: 24
+
+mul_by_three = lambda x, y, z: x * y * z
+print(mul_by_three(2, 3, 4))
+```
+
+```python
+#     55. Use lambda with sorted() to sort dict by value.
+# Example Input: {'a':3, 'b':1, 'c':2}
+# Expected Output: [('b', 1), ('c', 2), ('a', 3)]
+
+d = {'a':3, 'b':1, 'c':2}
+
+new_sorted = sorted(d.items(), key= lambda x: x[1])
+
+print(new_sorted)
+```
+
+```python
+#     56. Use lambda to get last char of a string.
+# Example Input: 'Python'
+# Expected Output: 'n'
+
+s = 'Python'
+last_char = lambda s : s[-1]
+print(last_char(s))
+```
+
+```python
+#     57. Write lambda to get absolute diff between two numbers.
+# Example Input: 10, 4
+# Expected Output: 6
+
+diff = lambda x, y : abs(x - y)
+print(diff(10, 4))
+```
+
+```python
+#     58. Use lambda to convert list of words to title case.
+# Example Input: ['hello', 'python']
+# Expected Output: ['Hello', 'Python']
+
+arr = ['hello', 'python']
+ans = list(map(lambda x: x.capitalize(), arr))
+print(ans)
+```
+```python
+#     59. Use lambda to reverse a string.
+# Example Input: 'world'
+# Expected Output: 'dlrow'
+
+s = 'world'
+new_string = lambda x : x[::-1]
+print(new_string(s))
+```
+```python
+#     60. Use lambda with reduce() to calculate sum of squares.
+# Example Input: [1, 2, 3]
+# Expected Output: 14
+# from functools import reduce
+
+arr = [1, 2, 3]
+
+ans = reduce(lambda x, y: x + y, list(map(lambda x: x**2, arr)))
+
+print(ans)
+```
