@@ -24,10 +24,10 @@ def greeter():
 g = greeter()
 print(next(g))        
 print(next(g)) 
-
+```
 
 ## Enum
-
+```python
 from enum import Enum, auto
 
 class Color(Enum):
@@ -56,10 +56,10 @@ print(Shape.SQUARE.describe())
 
 for color in Color:
     print(color)
-
+```
 
 ## Zip and unzip
-
+```python
 a = (1, 2, 3, 4)
 b = ('a', 'b', 'c')
 
@@ -69,9 +69,11 @@ print(pair)
 c, d = zip(*pair)  # Unzipping
 print("c:", c)
 print("d:", d)
+```
 
 ## Map, Filter, Reduce
 
+```python
 from functools import reduce
 
 l = [1, 2, 3, 4]
@@ -83,10 +85,11 @@ sum_val = reduce(lambda x, y: x + y, l)      # Reduce
 print(squares)
 print(even)
 print(sum_val)
-
+```
 
 ## str and repr
 
+```python
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -105,3 +108,4 @@ print(p)        # Calls __str__
 print(str(p))   # Explicit str()
 print(repr(p))  # Explicit repr()
 p               # REPL auto calls __repr__
+```
